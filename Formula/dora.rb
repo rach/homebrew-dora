@@ -10,7 +10,7 @@ class Dora < Formula
   on_macos do
     on_arm do
       url "https://github.com/rach/dora/releases/download/v0.2.1/dora-fs-v0.2.1-macos-arm64.tar.gz"
-      sha256 "a4f691be2e88a9262f6d2b0d60e69102131a4010bd0f6e42a87c7b4fdc01cb8d"
+      sha256 "357fdaac5600181221385477d57c336fe68e7872c14643e4ee661a44f10fa4a1"
 
       def install
         bin.install "dora"
