@@ -40,6 +40,21 @@ dora --version
 Then follow the [dora setup steps](https://github.com/rach/dora#tutorial--your-first-search-in-5-minutes)
 to register a source and wire dora into Claude Code.
 
+For instant re-indexing on file changes (and auto-pickup of newly-added sources),
+start the background watcher as a launchd service:
+
+```sh
+brew services start dora
+```
+
+That runs `dora watch` under launchd with auto-restart on login + crash, logging
+to `/opt/homebrew/var/log/dora-watch.log`. Safe to run before registering any
+sources — the watcher picks up the first `dora source add` automatically.
+Manage it via the standard `brew services {start|stop|restart|list} dora`. See
+the [main README's watcher
+section](https://github.com/rach/dora#step-55--optional-run-a-background-watcher)
+for the non-brew (`nohup`-based) alternative.
+
 ## Maintaining this tap
 
 For every dora release:

@@ -34,7 +34,14 @@ class Dora < Formula
     EOS
   end
 
+  service do
+    run [opt_bin/"dora", "watch"]
+    keep_alive true
+    log_path var/"log/dora-watch.log"
+    error_log_path var/"log/dora-watch.log"
+  end
+
   test do
-    assert_match "dora 0.2.0", shell_output("#{bin}/dora --version")
+    assert_match "dora #{version}", shell_output("#{bin}/dora --version")
   end
 end
