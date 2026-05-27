@@ -34,11 +34,16 @@ class Dora < Formula
     EOS
   end
 
+  # `brew services start dora` runs the MCP HTTP daemon — one persistent process that all
+  # MCP clients (Claude Code, Cursor, Codex) share. Embedders stay loaded across requests so
+  # client startups aren't paying the ~80 MB ONNX reload each. v0.2.1–v0.4.x users whose
+  # brew-service was running `dora watch` need to restart that themselves after upgrading
+  # (e.g. `nohup dora watch > /tmp/dora-watch.log 2>&1 &`).
   service do
-    run [opt_bin/"dora", "watch"]
+    run [opt_bin/"dora", "mcp", "--http"]
     keep_alive true
-    log_path var/"log/dora-watch.log"
-    error_log_path var/"log/dora-watch.log"
+    log_path var/"log/dora-mcp.log"
+    error_log_path var/"log/dora-mcp.log"
   end
 
   test do
