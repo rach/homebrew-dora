@@ -1,7 +1,7 @@
 class Dora < Formula
   desc "Personal semantic memory for notes and code — single binary, MCP-first"
   homepage "https://github.com/rach/dora"
-  version "0.5.0"
+  version "0.6.0"
   license "MIT"
 
   # Apple Silicon ships a prebuilt binary from the GitHub release.
@@ -9,8 +9,8 @@ class Dora < Formula
   # platforms should build from source: `cargo install --git https://github.com/rach/dora`.
   on_macos do
     on_arm do
-      url "https://github.com/rach/dora/releases/download/v0.5.0/dora-fs-v0.5.0-macos-arm64.tar.gz"
-      sha256 "455a96dc12f731a76de3f8ea6a152b76cb82c3a2bc4288d0820b99cae5ab3506"
+      url "https://github.com/rach/dora/releases/download/v0.6.0/dora-fs-v0.6.0-macos-arm64.tar.gz"
+      sha256 "8d0f329f7e408c4635c1fcc5aab2b89b0836e8f2ba85d7ded4d3f5416fcfe4bb"
 
       def install
         bin.install "dora"
@@ -21,7 +21,7 @@ class Dora < Formula
       odie <<~EOS
         dora doesn't publish an Intel macOS bottle yet.
         Build from source instead:
-          cargo install --git https://github.com/rach/dora --tag v0.5.0
+          cargo install --git https://github.com/rach/dora --tag v0.6.0
       EOS
     end
   end
@@ -30,7 +30,7 @@ class Dora < Formula
     odie <<~EOS
       dora doesn't publish a Linux bottle yet.
       Build from source instead:
-        cargo install --git https://github.com/rach/dora --tag v0.5.0
+        cargo install --git https://github.com/rach/dora --tag v0.6.0
     EOS
   end
 
